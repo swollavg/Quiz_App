@@ -30,12 +30,11 @@ body {
 .intro {
 	background: url('../images/blankkoreamap.png') no-repeat center center;
 	background-size: 100% 100%;
-	width: 95%;
-	max-width: 1000px;
-	height: 480px;
+	width: 1100px;
 	border: 2px solid black;
 	border-radius: 30px;
 	margin: 0 auto;
+	opacity: 1;
 }
 
 .transparent{
@@ -50,54 +49,62 @@ body {
 
 .intro-h1 {
 	text-align: center;
-	font-size: 200%;
+	font-size: 300%;
+	font-family: 'chow_funregular';
 }
 
 .intro-overlay p {
-	width: 90%;
 	margin: 0 auto;
-	position: relative;
-  	top: 30%;
-  	font-size: 150%;
-  	line-height: 1.1;
+	font-size: 150%;
+	font-family: 'imperatorbronzeregular';
+	font-weight: bold;
+	line-height: 1.4;
+	text-align: center;
+	margin-top: 30px;
+}
+
+.kimcorn {
+	width: 400px;
+	height: 200px;
+	display: block;
+	margin: 20px auto;
 }
 
 .push-button{
-	position: relative;
-  	top: 50%;
-	width:200px;
-	color:#FFF;
-	display:block;
-	text-decoration:none;
-	margin:0 auto;
-	border-radius:5px;
-	border:solid 1px #D94E3B;
-	background:#ED1C27;
-	text-align:center;
-	padding:20px 30px;
-	
+	width: 230px;
+	color: #FFF;
+	display: block;
+	text-decoration: none;
+	font-size: 150%;
+	font-family: 'chow_funregular';
+	margin: 10px auto 20px;
+	border-radius: 5px;
+	border: solid 1px #D94E3B;
+	background: #ED1C27;
+	text-align: center;
+	padding: 10px 20px;
 	-webkit-transition: all 0.1s;
 	-moz-transition: all 0.1s;
 	transition: all 0.1s;
-	
 	-webkit-box-shadow: 0px 9px 0px #803236;
-        -moz-box-shadow: 0px 9px 0px #803236;
-        box-shadow: 0px 9px 0px #803236;
+	-moz-box-shadow: 0px 9px 0px #803236;
+	box-shadow: 0px 9px 0px #803236;
 }
 
 .push-button:active {
 	position: relative;
-  	top: 50%;
+  	top: 7px;
     -webkit-box-shadow: 0px 2px 0px #84261a;
     -moz-box-shadow: 0px 2px 0px #84261a;
     box-shadow: 0px 2px 0px #84261a;
-    top:244px;
+    
 }
 
 
 /* Main Quiz*/
 
 .wrapper {
+	display: none;
 	position: relative;
 	width: 1100px;
 	height: 600px;
@@ -114,6 +121,12 @@ body {
 	height: 15%;
 	border-radius: 28px 28px 0 0;
 }
+
+.header-wrapper {
+	width: 500px;
+	margin: 0 auto;
+}
+
 
 #main-header {
 	font-family: 'chow_funregular';
@@ -234,13 +247,13 @@ body {
 	font-weight: bold;
 }
 
-.answer {
+.answer-wrapper {
 	float: right;
 	text-align: justify;
 	margin-top: 30px;
 }
 
- .answer1, .answer2, .answer3, .answer4 {
+ .answer {
  	display: inline-block;
 	width: 150px;
 	border: 1px solid black;
@@ -263,20 +276,12 @@ body {
 
 
 
-.answer1:active, .answer2:active, .answer3:active, .answer4:active {
+.answer:active {
 	position: relative;
 	top: 4px;
 	-webkit-box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.75);
     -moz-box-shadow:    0px 0px 5px 0px rgba(50, 50, 50, 0.75);
     box-shadow:         0px 0px 5px 0px rgba(50, 50, 50, 0.75);
-}
-
-
-
-.answer:after {
-  content: '';
-  width: 100%; /* Ensures there are at least 2 lines of text, so justification works */
-  display: inline-block;
 }
 
 .button-wrapper {
@@ -344,6 +349,9 @@ body {
 	background-color: #F4767D;
 }
 
+.selectedAnswer {
+	background-color: #F4767D;
+}
 
 
 

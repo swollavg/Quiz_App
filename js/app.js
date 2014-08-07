@@ -1,16 +1,20 @@
 $(document).ready(function(){
-	var clicked = false;
-	$('.answer1, .answer2, .answer3, .answer4').on('mouseup', function(){
 
 
-		if(clicked == false){
-			$(this).css('background-color', 'yellow');
-			clicked = true;
-		}
+	$('.push-button').click(function(event){
+		event.preventDefault();
+		$('.intro').animate({
+			opacity:0
+		}, 1000);
+		$('.wrapper').show();
+	});
 
-		else {
-			$(this).css('background-color', 'white');
-			clicked = false;
-		}
-	})
+	/* When an answer is clicked it turns color. Allows only 1 choice to be selected. */
+	$('.answer').on('click', function(){
+		console.dir(this);
+		$('.answer').removeClass('selectedAnswer');
+		$(this).addClass('selectedAnswer');
+	});
+
+
 });
