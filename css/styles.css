@@ -1,8 +1,37 @@
+
+@font-face {
+    font-family: 'chow_funregular';
+    src: url('../fonts/chowfun_-webfont.eot');
+    src: url('../fonts/chowfun_-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/chowfun_-webfont.woff') format('woff'),
+         url('../fonts/chowfun_-webfont.ttf') format('truetype'),
+         url('../fonts/chowfun_-webfont.svg#chow_funregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'imperatorbronzeregular';
+    src: url('../fonts/imperatorbronze-webfont.eot');
+    src: url('../fonts/imperatorbronze-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/imperatorbronze-webfont.woff') format('woff'),
+         url('../fonts/imperatorbronze-webfont.ttf') format('truetype'),
+         url('../fonts/imperatorbronze-webfont.svg#imperatorbronzeregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+body {
+	background: rgb(128, 119, 119)
+}
+
 .intro {
 	background: url('../images/blankkoreamap.png') no-repeat center center;
 	background-size: 100% 100%;
 	width: 95%;
-	max-width: 768px;
+	max-width: 1000px;
 	height: 480px;
 	border: 2px solid black;
 	border-radius: 30px;
@@ -27,24 +56,15 @@
 .intro-overlay p {
 	width: 90%;
 	margin: 0 auto;
-
-	/* CSS hack to vertically align */
 	position: relative;
   	top: 30%;
-  	
-  	/* ---------------------------*/
-
   	font-size: 150%;
   	line-height: 1.1;
 }
 
 .push-button{
-	
-	/* CSS hack to vertically align */
 	position: relative;
   	top: 50%;
-  	
-  	/* ---------------------------*/
 	width:200px;
 	color:#FFF;
 	display:block;
@@ -78,14 +98,253 @@
 /* Main Quiz*/
 
 .wrapper {
-	width: 95%;
-	max-width: 768px;
-	height: 480px;
+	position: relative;
+	width: 1100px;
+	height: 600px;
 	border: 2px solid black;
 	border-radius: 30px;
 	margin: 0 auto; 
+	background: #fff;
 }
 
-.flag {
-	background: url(../images/);
+.red {
+	position: relative;
+	background-color: #ED1C27;
+	width: 100%;
+	height: 15%;
+	border-radius: 28px 28px 0 0;
 }
+
+#main-header {
+	font-family: 'chow_funregular';
+	font-size: 400%;
+	font-weight: bold;
+	text-align: center;
+}
+
+.instructions {
+	font-family: 'chow_funregular';
+	display: inline-block;
+	font-size: 120%;
+	font-weight: bold;
+	border: 1px dotted black;
+	padding: 5px;
+	margin-left: 10px;
+	position: absolute;
+	bottom: 5px;
+	border-radius: 10px;
+	color: #000;
+	text-decoration: none;
+	-webkit-transition: all 0.1s;
+	-moz-transition: all 0.1s;
+	transition: all 0.1s;
+	-webkit-box-shadow: 2px -2px 5px 0px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow:    2px -2px 5px 0px rgba(50, 50, 50, 0.75);
+    box-shadow:         2px -2px 5px 0px rgba(50, 50, 50, 0.75);
+}
+
+.instructions:active {
+	position: absolute;
+	bottom: 7px;
+	-webkit-box-shadow: 0px 0px 2px 0px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow:    0px 0px 2px 0px rgba(50, 50, 50, 0.75);
+    box-shadow:         0px 0px 2px 0px rgba(50, 50, 50, 0.75);
+}
+
+.restart {
+	font-family: 'chow_funregular';
+	display: inline-block;
+	padding: 5px;
+	text-decoration: none;
+	font-size: 120%;
+	font-weight: bold;
+	border: 1px dotted black;
+	margin-right: 10px;
+	position: absolute;	
+	bottom: 5px;
+	right: 0;
+	border-radius: 10px;
+	color: #000;
+	-webkit-transition: all 0.1s;
+	-moz-transition: all 0.1s;
+	transition: all 0.1s;
+	-webkit-box-shadow: 2px -2px 5px 0px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow:    2px -2px 5px 0px rgba(50, 50, 50, 0.75);
+    box-shadow:         2px -2px 5px 0px rgba(50, 50, 50, 0.75);
+}
+
+.restart:active {
+	position: absolute;
+	bottom: 7px;
+	-webkit-box-shadow: 0px 0px 2px 0px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow:    0px 0px 2px 0px rgba(50, 50, 50, 0.75);
+    box-shadow:         0px 0px 2px 0px rgba(50, 50, 50, 0.75);
+}
+
+.red2 {
+	background-color: #ED1C27;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	border-radius: 0 0 28px 28px;
+}
+
+.correct {
+	font-family: 'chow_funregular';
+	font-size: 300%;
+	text-align: center;
+}
+
+.explanation {
+	font-size: 130%;
+	text-align: center;
+	font-family: 'imperatorbronzeregular';
+	font-weight: bold;
+}
+
+.blue {
+	position: relative;
+    margin-top: 14px;
+	background-color: #185FAA;
+	width: 100%;
+	height: 65%;
+}
+
+.kimpic {
+	width: 300px;
+	height: 300px;
+	position: relative;
+    float: left;
+    margin-top: 46px;
+}
+
+.question {
+	width: 600px;
+ 	border: 1px solid black;
+ 	float: right;
+ 	margin-top: 10px;
+ 	background-color: #ED1C27;
+	padding: 8px;
+}
+
+.question p {
+	font-size: 175%;
+	text-align: center;
+	font-family: 'imperatorbronzeregular';
+	font-weight: bold;
+}
+
+.answer {
+	float: right;
+	text-align: justify;
+	margin-top: 30px;
+}
+
+ .answer1, .answer2, .answer3, .answer4 {
+ 	display: inline-block;
+	width: 150px;
+	border: 1px solid black;
+	border-radius: 20px; 
+	font-size: 190%;
+	text-align: center;
+	display: inline-block;
+	text-decoration: none;
+	color: #000;
+	-webkit-transition: all 0.1s;
+	-moz-transition: all 0.1s;
+	transition: all 0.1s;
+	background-color: #fff;
+
+	-webkit-box-shadow: 4px 4px 5px 0px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow:    4px 4px 5px 0px rgba(50, 50, 50, 0.75);
+    box-shadow:         4px 4px 5px 0px rgba(50, 50, 50, 0.75);
+
+}
+
+
+
+.answer1:active, .answer2:active, .answer3:active, .answer4:active {
+	position: relative;
+	top: 4px;
+	-webkit-box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow:    0px 0px 5px 0px rgba(50, 50, 50, 0.75);
+    box-shadow:         0px 0px 5px 0px rgba(50, 50, 50, 0.75);
+}
+
+
+
+.answer:after {
+  content: '';
+  width: 100%; /* Ensures there are at least 2 lines of text, so justification works */
+  display: inline-block;
+}
+
+.button-wrapper {
+	float: right;
+	width: 610px;
+	margin-top: 10px;
+}
+
+.push-button2 {
+	font-family: 'chow_funregular';
+	font-size: 150%;
+	width: 175px;
+	color:#FFF;
+	display:block;
+	text-decoration:none;
+	margin:0 auto;
+	border-radius:5px;
+	border:solid 1px #D94E3B;
+	background:#ED1C27;
+	text-align:center;
+	padding:5px 30px;
+
+	-webkit-transition: all 0.1s;
+	-moz-transition: all 0.1s;
+	transition: all 0.1s;
+	
+	-webkit-box-shadow: 0px 9px 0px #803236;
+    -moz-box-shadow: 0px 9px 0px #803236;
+     box-shadow: 0px 9px 0px #803236;
+}
+
+.push-button2:active {
+	position: relative;
+    -webkit-box-shadow: 0px 2px 0px #84261a;
+    -moz-box-shadow: 0px 2px 0px #84261a;
+    box-shadow: 0px 2px 0px #84261a;
+    top:7px;
+}
+
+.score-wrapper {
+	width: 450px;
+	float: right;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
+
+.score-wrapper img {
+	width: 60px;
+	height: 96px;
+	margin-right: 10px;
+	float: left;
+}
+
+
+.counter-wrapper {
+	float: left;
+	font-size: 150%;
+}
+
+.counter-wrapper p {
+	border: 2px solid black;
+	margin: 7px 0;
+	font-family: 'chow_funregular';
+	background-color: #F4767D;
+}
+
+
+
+
+
