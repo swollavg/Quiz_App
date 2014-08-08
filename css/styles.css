@@ -235,7 +235,7 @@ body {
     margin-top: 46px;
 }
 
-.question {
+.question-template {
 	width: 600px;
  	border: 1px solid black;
  	float: right;
@@ -244,7 +244,7 @@ body {
 	padding: 8px;
 }
 
-.question p {
+.question-template p {
 	font-size: 175%;
 	text-align: center;
 	font-family: 'imperatorbronzeregular';
