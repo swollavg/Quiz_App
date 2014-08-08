@@ -1,7 +1,13 @@
 $(document).ready(function(){
 
+	var correct = "Correct!";
+	var wrong = "Wrong!";
+	var answer1 = $('#answer1');
+	var answer2 = $('#answer2');
+	var answer3 = $('#answer3');
+	var answer4 = $('#answer4');
+	var answerArray = [answer1, answer2, answer3, answer4];	
 	
-
 	/* Fades out intro page into the actual quiz */
 	$('.push-button').click(function(event){
 		event.preventDefault();
@@ -13,12 +19,44 @@ $(document).ready(function(){
 
 	});
 
+
+	$('.question-template p').text(question1.q1);
+	 
+	
+    	$.each(answerArray, function(index, value){
+
+    		this.text(question1.a1);
+    	});
+
+    	/*
+    	for(i = 0; i < answerArray.length; i++) {
+
+	    	for(prop in question1){
+	    		
+	    	    answerArray[i].text(question1[prop]);
+	        };
+        }
+ 		*/
+
+    
+
+
 	/* When an answer is clicked it turns color. Allows only 1 choice to be selected. */
 	$('.answer').on('click', function(){
 		console.dir(this);
 		$('.answer').removeClass('selectedAnswer');
 		$(this).addClass('selectedAnswer');
 	});
+
+
+
+
+
+}); // End document ready
+
+/* Objects*/
+
+var questionArray = [question1, question2, question3, question4, question5, question6, question7, question8, question9, question10];
 
 	var question1 = {
 		q1: "Kim Jong-il made how many hole-in-one's\
@@ -39,7 +77,7 @@ $(document).ready(function(){
 		a2: "$350,000",
 		a3: "$500,000",
 		correct: "$700,000",
-		explain2: "Kim Jong-il was the largest consumer of Henessey, spending /
+		explain2: "Kim Jong-il was the largest consumer of Henessey, spending \
 		700,00USD each year on average."
 	};
 
@@ -122,6 +160,3 @@ $(document).ready(function(){
 		explain10: "He was said to be a particular fan of Elizabeth Taylor, \
 		the late Hollywood actress."
 	};
-
-
-});
