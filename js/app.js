@@ -1,19 +1,10 @@
 $(document).ready(function(){
 	
-	var questionArray = [question1, question2, question3, question4, question5, question6, question7, question8, question9, question10];
-	var correct = "Correct!";
-	var wrong = "Wrong!";
-	var answer1 = $('#answer1');
-	var answer2 = $('#answer2');
-	var answer3 = $('#answer3');
-	var answer4 = $('#answer4');
-	var answerArray = [answer1, answer2, answer3, answer4];	
+	var questionArray = [question1, question2, question3, question4, question5, question6, question7, question8, question9, question10];	
 	var currentQuestion = 0;
-	var rightWrong = $('.correct');
-	var elaborate = $('.explanation');
 	var currentObject = questionArray[currentQuestion];
-
-
+	var correctNum = 0;
+	var wrongNum = 0;
 	/* Fades out intro page into the actual quiz */
 	$('.push-button').click(function(event){
 		event.preventDefault();
@@ -26,19 +17,35 @@ $(document).ready(function(){
 	});
 
 	$('.push-button2').click(function(){
+		var rightWrong = $('.correct');
+	    var elaborate = $('.explanation');
+	    
+	    if($('.answer').hasClass('selectedAnswer')) {
+	    	
 	    	if($('.selectedAnswer').text() == currentObject.correct){
-	    		rightWrong.text(correct);
+	    		correctNum += 1;
+	    		rightWrong.text("Correct!");
 	    		elaborate.text(currentObject.explain);
+	    		$('.counter-number-correct').text(correctNum);
+	    		$('.answer').removeClass('selectedAnswer');
 	    		currentQuestion++;
 	    		initQuestion(currentQuestion);
 	    	}
 
 	    	else {
-	    		
-	    		rightWrong.text(wrong);
+	    		wrongNum += 1;
+	    		rightWrong.text("Wrong!");
+	    		elaborate.text('');
+	    		$('.counter-number-wrong').text(wrongNum)
+	    		$('.answer').removeClass('selectedAnswer');
 	    		currentQuestion++;
 	    		initQuestion(currentQuestion);
 	    	}
+	    }
+	    
+	    else {
+	    	alert('Please chose an answer');
+	    }
 
 	});
 
@@ -47,6 +54,7 @@ $(document).ready(function(){
 	function initQuestion(question) {
 		 currentObject = questionArray[question];
 		 text = currentObject.q;
+		 $('.counter-number').text(currentQuestion + 1);
 		$('.question-template p').text(text);
 		$('#answer1').text(currentObject.a);
 		$('#answer2').text(currentObject.b);

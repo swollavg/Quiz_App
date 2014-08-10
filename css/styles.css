@@ -237,11 +237,12 @@ body {
 }
 
 .question-template {
-	width: 600px;
- 	border: 1px solid black;
- 	float: right;
- 	margin-top: 10px;
- 	background-color: #ED1C27;
+	width: 740px;
+	border: 1px solid black;
+	float: right;
+	margin-top: 10px;
+	margin-right: 10px;
+	background-color: #ED1C27;
 	padding: 8px;
 }
 
@@ -343,8 +344,10 @@ body {
 
 
 .counter-wrapper {
-	float: left;
+	position: absolute;
 	font-size: 150%;
+	bottom: 0;
+	left: 310px;
 }
 
 .counter-wrapper p {
