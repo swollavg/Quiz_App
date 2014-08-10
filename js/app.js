@@ -11,8 +11,9 @@ $(document).ready(function(){
 	var currentQuestion = 0;
 	var rightWrong = $('.correct');
 	var elaborate = $('.explanation');
+	var currentObject = questionArray[currentQuestion];
 
-	
+
 	/* Fades out intro page into the actual quiz */
 	$('.push-button').click(function(event){
 		event.preventDefault();
@@ -24,44 +25,37 @@ $(document).ready(function(){
 
 	});
 
-	initQuestion(currentQuestion);
-
-	function initQuestion(question) {
-		var select = $('.selectedAnswer');
-		var currentObject = questionArray[question];
-		var text = questionArray[question].q;
-		console.log(text);
-		console.log(currentObject);
-		$('.question-template p').text(text);
-			$('#answer1').text(currentObject.a);
-			$('#answer2').text(currentObject.b);
-			$('#answer3').text(currentObject.c);
-			$('#answer4').text(currentObject.d);
-
-	   
-
-	    $('.push-button2').click(function(){
-			console.log(currentObject);
+	$('.push-button2').click(function(){
 	    	if($('.selectedAnswer').text() == currentObject.correct){
 	    		rightWrong.text(correct);
 	    		elaborate.text(currentObject.explain);
-	    		nextQuestion();
+	    		currentQuestion++;
+	    		initQuestion(currentQuestion);
 	    	}
 
 	    	else {
+	    		
 	    		rightWrong.text(wrong);
-	    		nextQuestion();
+	    		currentQuestion++;
+	    		initQuestion(currentQuestion);
 	    	}
 
-	    });
+	});
+
+	
+
+	function initQuestion(question) {
+		 currentObject = questionArray[question];
+		 text = currentObject.q;
+		$('.question-template p').text(text);
+		$('#answer1').text(currentObject.a);
+		$('#answer2').text(currentObject.b);
+		$('#answer3').text(currentObject.c);
+		$('#answer4').text(currentObject.d);
+
 	}
 
-	function nextQuestion() {
-		/*$('.answer').removeClass('selectedAnswer');*/
-		currentQuestion++;
-		initQuestion(currentQuestion);
-		console.log(currentQuestion);
-	}
+	
 
     
 
@@ -74,7 +68,7 @@ $(document).ready(function(){
 	});
 
 
-
+	initQuestion(currentQuestion);
 
 
 }); // End document ready
@@ -99,11 +93,11 @@ $(document).ready(function(){
 	var question2 = {
 		q: "How much money did Kim Jong-il spend each year on\
 		cognac?",
-		a: "$200,000",
-		b: "$350,000",
-		c: "$500,000",
-		d: "$700,000",
-		correct: "$700,000",
+		a: "200,000",
+		b: "350,000",
+		c: "500,000",
+		d: "700,000",
+		correct: "700,000",
 		explain: "Kim Jong-il was the largest consumer of Henessey, spending \
 		700,00USD each year on average."
 	};
