@@ -7,8 +7,6 @@ $(document).ready(function(){
 	var wrongNum = 0;
 	var rightWrong = $('.correct');
 	var elaborate = $('.explanation');
-	var wrapperZ = 0;
-	var finalZ = 0;
 	
 	/* sorts the questionArray variable */
 	shuffle(questionArray);
@@ -21,14 +19,6 @@ $(document).ready(function(){
 		}, 850, function(){
 			$('.intro').hide();
 		});
-	});
-
-	/* When an answer is clicked it turns color. Allows only 1 choice to be selected. */
-	$('.answer').on('click', function(event){
-		event.preventDefault();
-		console.dir(this);
-		$('.answer').removeClass('selectedAnswer');
-		$(this).addClass('selectedAnswer');
 	});
 
 	$('.push-button2').click(function(event){
@@ -75,11 +65,19 @@ $(document).ready(function(){
 		$('.final').animate({
 			opacity: 0
 		}, 1000);
-		/* On the reset, make wrapper z index bigger than final */
+		/* On the reset, make .wrapper z index bigger than .final */
 		$('.wrapper').css("z-index", "1");
 		$('.final').css("z-index",  "-1");
 		$('.finalWin p').text('');
 		$('.finalLose p').text('');
+	});
+
+	/* When an answer is clicked it turns color. Allows only 1 choice to be selected. */
+	$('.answer').on('click', function(event){
+		event.preventDefault();
+		console.dir(this);
+		$('.answer').removeClass('selectedAnswer');
+		$(this).addClass('selectedAnswer');
 	});
 	
 	/* fades to intructions page */
@@ -88,6 +86,7 @@ $(document).ready(function(){
 		$('.push-button').text('Return To Quiz!');
 	});
 
+	/* calls newGame function. Resets all variables */
 	$('.restart').click(function(){
 		newGame();
 	});
@@ -164,12 +163,14 @@ $(document).ready(function(){
 
     return array;
     }
-
+    
+    /* At the end of 10 questions, checks score and adds appopriate text etc. */
     function checkScore() {
     	
     	if(currentQuestion === 10) {
     		if(correctNum >= 6){
-    			$('.final').delay(2000)
+    			/* After the last answer, the explanation pauses for 1.3 sec, then transitions */
+    			$('.final').delay(1300)
     			.queue(function(next){
     				$('.correct').text('');
 	    		    $('.explanation').text('');
@@ -181,24 +182,25 @@ $(document).ready(function(){
 	    			opacity: 1
 	    		}, 1000);
 
-
-	    		$('.finalWin p').text('Congratulations! You answered ' + correctNum + ' questions\
+				$('.finalWin p').text('Congratulations! You answered ' + correctNum + ' questions\
 	    		 correctly! Kim Jong-il would be proud!');
-	    		/* reset the explanations from the quiz */
 	    		
 	    	}
 
 	    	else if(correctNum < 6) {
-	    		$('.final').show();
-	    		$('.final').css("z-index", "2");
+	    		$('.final').delay(1300)
+    			.queue(function(next){
+    				$('.correct').text('');
+	    		    $('.explanation').text('');
+	    		    next();
+    			})
+    			.show();
+    			$('.final').css("z-index", "2");
 	    		$('.final').animate({
 	    			opacity: 1
 	    		}, 1000);
-	    		$('.finalLose p').text('Sorry! You only answered ' + wrongNum + ' questions correctly!\
+	    		$('.finalLose p').text('Sorry! You only answered ' + correctNum + ' questions correctly!\
 	    			Kim Jong-il is very dissapointed with you!');
-	    		/* reset the explanations from the quiz */
-	    		$('.correct').text('');
-	    		$('.explanation').text('');
 	    	}
     	}
     }
