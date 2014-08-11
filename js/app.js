@@ -9,7 +9,7 @@ $(document).ready(function(){
 	var elaborate = $('.explanation');
 	
 	/* sorts the questionArray variable */
-	shuffle(questionArray);
+	questionArray = shuffle(questionArray);
 
 	/* Fades out intro page into the actual quiz */
 	$('.push-button').click(function(event){
@@ -169,10 +169,10 @@ $(document).ready(function(){
     /* At the end of 10 questions, checks score and adds appopriate text etc. */
     function checkScore() {
     	
-    	if(currentQuestion === 10) {
+    	if(currentQuestion == 10) {
     		if(correctNum >= 6){
-    			/* After the last answer, the explanation pauses for 2 sec, then transitions */
-    			$('.final').delay(2000)
+    			/* After the last answer, the explanation pauses for 2.2 sec, then transitions */
+    			$('.final').delay(2200)
     			.queue(function(next){
     				$('.correct').text('');
 	    		    $('.explanation').text('');
@@ -191,7 +191,7 @@ $(document).ready(function(){
 	    	}
 
 	    	else if(correctNum < 6) {
-	    		$('.final').delay(2000)
+	    		$('.final').delay(2200)
     			.queue(function(next){
     				$('.correct').text('');
 	    		    $('.explanation').text('');
@@ -270,10 +270,9 @@ $(document).ready(function(){
 		b: "Tylenol",
 		c: "Cigarettes",
 		d: "Hamburgers",
-		correct: "Cigarettes",
+		correct: "Hamburgers",
 		explain: "North Korean newspapers once reported that Kim Jong Il had invented \
-		something called the \"double bread with meat\" and created factories to produce \
-		them."
+		something called the \"double bread with meat\"."
 	};
 
 	var question6 = {

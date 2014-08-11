@@ -122,14 +122,9 @@ body {
 	font-size: 220%;
 	font-family: 'imperatorbronzeregular';
 	font-weight: bold;
-	line-height: 1.4;
 	text-align: center;
+	padding-top: 10px;
 }
-
-.finalWin p {
-	padding-top: 80px;
-}
-
 
 /* Main Quiz*/
 
@@ -234,16 +229,16 @@ body {
 
 .correct {
 	font-family: 'chow_funregular';
-	font-size: 300%;
+	font-size: 260%;
 	text-align: center;
 }
 
 .explanation {
-	width: 90%;
+	width: 95%;
 	margin: 0 auto;
 	font-size: 170%;
 	text-align: center;
-	font-family: 'imperatorbronzeregular';
+	font-family: Rockwell, "Courier Bold", Courier, Georgia, Times, "Times New Roman", serif;
 	font-weight: bold;
 }
 
