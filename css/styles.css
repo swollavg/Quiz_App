@@ -61,7 +61,7 @@ body {
 	font-size: 150%;
 	font-family: 'imperatorbronzeregular';
 	font-weight: bold;
-	line-height: 1.4;
+	line-height: 1.5;
 	text-align: center;
 	margin-top: 30px;
 }
@@ -119,7 +119,7 @@ body {
 
 .finalWin, .finalLose {
 	margin: 0 auto;
-	font-size: 150%;
+	font-size: 220%;
 	font-family: 'imperatorbronzeregular';
 	font-weight: bold;
 	line-height: 1.4;
@@ -228,7 +228,7 @@ body {
 	position: absolute;
 	bottom: 0;
 	width: 100%;
-	height: 89px;
+	min-height: 89px;
 	border-radius: 0 0 28px 28px;
 }
 
@@ -239,7 +239,9 @@ body {
 }
 
 .explanation {
-	font-size: 130%;
+	width: 90%;
+	margin: 0 auto;
+	font-size: 170%;
 	text-align: center;
 	font-family: 'imperatorbronzeregular';
 	font-weight: bold;
@@ -322,7 +324,7 @@ body {
 .button-wrapper {
 	float: right;
 	width: 700px;
-	margin-top: 50px;
+	margin-top: 30px;
 }
 
 .push-button2 {
@@ -405,7 +407,7 @@ body {
 
 .counter-wrapper {
 	position: absolute;
-	font-size: 150%;
+	font-size: 180%;
 	bottom: 0;
 	left: 10px;
 }

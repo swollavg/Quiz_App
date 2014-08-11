@@ -139,6 +139,8 @@ $(document).ready(function(){
 		rightWrong.text('');
 		elaborate.text('');
 		$('.push-button').text('Click to Begin!'); // Resets Intro button 
+		$('.finalWin').show();
+		$('.finalLose').show();
 		initQuestion(currentQuestion);
 	}
 
@@ -169,8 +171,8 @@ $(document).ready(function(){
     	
     	if(currentQuestion === 10) {
     		if(correctNum >= 6){
-    			/* After the last answer, the explanation pauses for 1.3 sec, then transitions */
-    			$('.final').delay(1300)
+    			/* After the last answer, the explanation pauses for 2 sec, then transitions */
+    			$('.final').delay(2000)
     			.queue(function(next){
     				$('.correct').text('');
 	    		    $('.explanation').text('');
@@ -182,13 +184,14 @@ $(document).ready(function(){
 	    			opacity: 1
 	    		}, 1000);
 
+	    		$('.finalLose').hide();
 				$('.finalWin p').text('Congratulations! You answered ' + correctNum + ' questions\
 	    		 correctly! Kim Jong-il would be proud!');
 	    		
 	    	}
 
 	    	else if(correctNum < 6) {
-	    		$('.final').delay(1300)
+	    		$('.final').delay(2000)
     			.queue(function(next){
     				$('.correct').text('');
 	    		    $('.explanation').text('');
@@ -199,6 +202,8 @@ $(document).ready(function(){
 	    		$('.final').animate({
 	    			opacity: 1
 	    		}, 1000);
+
+	    		$('.finalWin').hide();
 	    		$('.finalLose p').text('Sorry! You only answered ' + correctNum + ' questions correctly!\
 	    			Kim Jong-il is very dissapointed with you!');
 	    	}
@@ -242,8 +247,8 @@ $(document).ready(function(){
 		q: "According to an offical North Korean Biography, Kim Jong-il...",
 		a: "Could Fly",
 		b: "Did not defecate",
-		c: "Ran a marathon in 2.5 hours",
-		d: "Moved items using his mind",
+		c: "Ran 1000 miles",
+		d: "Had ESP",
 		correct: "Did not defecate",
 		explain: "According to an official biography, Kim Jong-il did not defecate."
 	};
@@ -251,10 +256,10 @@ $(document).ready(function(){
 	var question4 = {
 		q: "Kim Jong-il frequently ate...",
 		a: "Insects",
-		b: "Koala meat",
-		c: "Donkey meat",
-		d: "Bald eagle meat",
-		correct: "Donkey meat",
+		b: "Koala",
+		c: "Donkey",
+		d: "Bald eagle",
+		correct: "Donkey",
 		explain: "One of Kim's former chefs reported in 2004 that the leader developed \
 		a taste for nice French wine, lobster and donkey meat."
 	};
@@ -295,22 +300,22 @@ $(document).ready(function(){
 
 	var question8 = {
 		q: "Kim Jong-il had female workers...",
-		a: "Inspect each grain of rice",
-		b: "Dance seductively at sunrise",
-		c: "Executed each morning",
-		d: "Dye their hair brown every October",
-		correct: "Inspect each grain of rice",
+		a: "Inspect rice",
+		b: "Dance seductively",
+		c: "Executed daily",
+		d: "Get tattoos",
+		correct: "Inspect rice",
 		explain: "Kim had female staff inspect each grain of rice \
 		to check it adhered to standards of length, weight and colour."
 	};
 
 	var question9 = {
 		q: "During a North Korean famine. Kim Jong-il decided to...",
-		a: "Invest 1.5 billion in Ramen noodles",
-		b: "Bless the farmland with his holy touch",
-		c: "Spend 2 years in switzerland",
-		d: "Breed giant rabbits for consumption",
-		correct: "Breed giant rabbits for consumption",
+		a: "Invest in Ramen",
+		b: "Bless the farmland",
+		c: "Go to Disneyland",
+		d: "Breed giant rabbits",
+		correct: "Breed giant rabbits",
 		explain: "North Korean officials got in touch with a German \
 		giant rabbit farmer named Karl Szmolinsky to breed giant rabbits."
 	};
