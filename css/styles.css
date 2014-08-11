@@ -257,18 +257,22 @@ body {
 	float: right;
 	text-align: justify;
 	margin-top: 30px;
+	margin-right: 10px;
 }
 
  .answer {
  	display: inline-block;
-	width: 150px;
+	width: 175px;
 	border: 1px solid black;
 	border-radius: 20px; 
-	font-size: 190%;
+	font-size: 150%;
+	padding: 3px;
 	text-align: center;
+	font-weight: bold;
 	display: inline-block;
 	text-decoration: none;
 	color: #000;
+	
 	-webkit-transition: all 0.1s;
 	-moz-transition: all 0.1s;
 	transition: all 0.1s;
@@ -277,7 +281,6 @@ body {
 	-webkit-box-shadow: 4px 4px 5px 0px rgba(50, 50, 50, 0.75);
     -moz-box-shadow:    4px 4px 5px 0px rgba(50, 50, 50, 0.75);
     box-shadow:         4px 4px 5px 0px rgba(50, 50, 50, 0.75);
-
 }
 
 
@@ -328,7 +331,7 @@ body {
 }
 
 .score-wrapper {
-	width: 450px;
+	width: 550px;
 	float: right;
 	position: absolute;
 	bottom: 0;
@@ -336,12 +339,12 @@ body {
 }
 
 .score-wrapper img {
-	width: 60px;
-	height: 96px;
+	width: 42px;
+	height: 86px;
 	margin-right: 10px;
 	float: left;
+	opacity: 0;
 }
-
 
 .counter-wrapper {
 	position: absolute;

@@ -10,7 +10,7 @@ $(document).ready(function(){
 		event.preventDefault();
 		$('.intro').animate({
 			opacity:0
-		}, 1500, function(){
+		}, 1200, function(){
 			$('.intro').hide();
 		});
 
@@ -26,6 +26,7 @@ $(document).ready(function(){
 	    		correctNum += 1;
 	    		rightWrong.text("Correct!");
 	    		elaborate.text(currentObject.explain);
+	    		addCorrectImage();
 	    		$('.counter-number-correct').text(correctNum);
 	    		$('.answer').removeClass('selectedAnswer');
 	    		currentQuestion++;
@@ -36,6 +37,7 @@ $(document).ready(function(){
 	    		wrongNum += 1;
 	    		rightWrong.text("Wrong!");
 	    		elaborate.text('');
+	    		addWrongImage();
 	    		$('.counter-number-wrong').text(wrongNum)
 	    		$('.answer').removeClass('selectedAnswer');
 	    		currentQuestion++;
@@ -60,13 +62,21 @@ $(document).ready(function(){
 		$('#answer2').text(currentObject.b);
 		$('#answer3').text(currentObject.c);
 		$('#answer4').text(currentObject.d);
-
 	}
 
-	
+	function addCorrectImage() {
+		$('.score-wrapper').append('<img src="images/cognac.png" alt="pic of cognac" class="fade">');
+		$('.fade').animate({
+			opacity:1
+		}, 700);
+	}
 
-    
-
+	function addWrongImage() {
+		$('.score-wrapper').append('<img src="images/kimsmallwrong.png" alt="pic of cognac" class="fade">');
+		$('.fade').animate({
+			opacity:1
+		}, 700);
+	}
 
 	/* When an answer is clicked it turns color. Allows only 1 choice to be selected. */
 	$('.answer').on('click', function(){
@@ -82,8 +92,6 @@ $(document).ready(function(){
 }); // End document ready
 
 /* Objects*/
-
-
 
 	var question1 = {
 		q: "Kim Jong-il made how many hole-in-one's\
@@ -145,12 +153,12 @@ $(document).ready(function(){
 
 	var question6 = {
 		q: "Kim Jong-il was born...",
-		a: "under a double rainbow",
-		b: " to a virgin",
-		c: "in south Detroit",
-		d: "under water",
-		correct: "under a double rainbow",
-		explain: "his birth in Baekdu Mountain was prophesied by a swallow and heralded \
+		a: "Under a double rainbow",
+		b: "To a virgin",
+		c: "In south Detroit",
+		d: "Under water",
+		correct: "Under a double rainbow",
+		explain: "His birth in Baekdu Mountain was prophesied by a swallow and heralded \
 		with a double rainbow and a new star in the heavens."
 	};
 
@@ -167,22 +175,22 @@ $(document).ready(function(){
 
 	var question8 = {
 		q: "Kim Jong-il had female workers...",
-		a: "inspect each grain of rice before cooking it",
-		b: "dance seductively at sunrise",
-		c: "executed each morning",
-		d: "dye their hair brown every October",
-		correct: "inspect each grain of rice before cooking it",
+		a: "Inspect each grain of rice",
+		b: "Dance seductively at sunrise",
+		c: "Executed each morning",
+		d: "Dye their hair brown every October",
+		correct: "Inspect each grain of rice",
 		explain: "Kim had female staff inspect each grain of rice \
 		to check it adhered to standards of length, weight and colour."
 	};
 
 	var question9 = {
 		q: "During a North Korean famine. Kim Jong-il decided to...",
-		a: "invest 1.5 billion in Ramen noodles",
-		b: "bless the farmland with his holy touch",
-		c: "spend 2 years in switzerland",
-		d: "breed giant rabbits for consumption",
-		correct: "breed giant rabbits for consumption",
+		a: "Invest 1.5 billion in Ramen noodles",
+		b: "Bless the farmland with his holy touch",
+		c: "Spend 2 years in switzerland",
+		d: "Breed giant rabbits for consumption",
+		correct: "Breed giant rabbits for consumption",
 		explain: "North Korean officials got in touch with a German \
 		giant rabbit farmer named Karl Szmolinsky to breed giant rabbits."
 	};

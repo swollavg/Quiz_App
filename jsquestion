@@ -1,0 +1,13 @@
+
+
+for(i = 0; i < answerArray.length; i++) {
+
+    	for(prop in question1){
+    		
+    	    answerArray[i].text(question1[prop]);
+        };
+    }
+
+    <img src="images/cognac.png" alt="pic of cognac" class="cognac">
+
+    <img src="images/kimsmallwrong.png" alt="pic of cognac" class="cognac">
