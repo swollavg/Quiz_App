@@ -104,11 +104,36 @@ body {
     
 }
 
+.final {
+	width: 1100px;
+	height: 600px;
+	position: absolute;
+	left: 50%;
+	margin-left: -550px;
+	border: 2px solid black;
+	border-radius: 30px;
+	background: #fff;
+	opacity: 0;
+	z-index: -1;
+}
+
+.finalWin, .finalLose {
+	margin: 0 auto;
+	font-size: 150%;
+	font-family: 'imperatorbronzeregular';
+	font-weight: bold;
+	line-height: 1.4;
+	text-align: center;
+}
+
+.finalWin p {
+	padding-top: 80px;
+}
+
 
 /* Main Quiz*/
 
 .wrapper {
-	display: none;
 	position: relative;
 	width: 1100px;
 	height: 600px;
@@ -116,7 +141,6 @@ body {
 	border-radius: 30px;
 	margin: 0 auto; 
 	background: #fff;
-	
 }
 
 .red {
@@ -324,6 +348,37 @@ body {
 }
 
 .push-button2:active {
+	position: relative;
+    -webkit-box-shadow: 0px 2px 0px #84261a;
+    -moz-box-shadow: 0px 2px 0px #84261a;
+    box-shadow: 0px 2px 0px #84261a;
+    top:7px;
+}
+
+.push-button3 {
+	font-family: 'chow_funregular';
+	font-size: 150%;
+	width: 175px;
+	color:#FFF;
+	display:block;
+	text-decoration:none;
+	margin:0 auto;
+	border-radius:5px;
+	border:solid 1px #D94E3B;
+	background:#ED1C27;
+	text-align:center;
+	padding:5px 30px;
+
+	-webkit-transition: all 0.1s;
+	-moz-transition: all 0.1s;
+	transition: all 0.1s;
+	
+	-webkit-box-shadow: 0px 9px 0px #803236;
+    -moz-box-shadow: 0px 9px 0px #803236;
+     box-shadow: 0px 9px 0px #803236;
+}
+
+.push-button3:active {
 	position: relative;
     -webkit-box-shadow: 0px 2px 0px #84261a;
     -moz-box-shadow: 0px 2px 0px #84261a;

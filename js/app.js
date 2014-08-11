@@ -21,6 +21,14 @@ $(document).ready(function(){
 		});
 	});
 
+	/* When an answer is clicked it turns color. Allows only 1 choice to be selected. */
+	$('.answer').on('click', function(event){
+		event.preventDefault();
+		console.dir(this);
+		$('.answer').removeClass('selectedAnswer');
+		$(this).addClass('selectedAnswer');
+	});
+
 	$('.push-button2').click(function(event){
 		event.preventDefault();
 	    /* Validaton. Prevents submiting without answering */
@@ -57,6 +65,17 @@ $(document).ready(function(){
 	    }
 
 	});
+
+$('.push-button3').on('click',function(){
+	newGame();		
+	console.log(currentQuestion);
+	console.log(correctNum);
+	$('.final').animate({
+		opacity: 0
+	}, 1000);
+	$('.wrapper').css("z-index", "3");
+	
+});
 	
 	/* fades to intructions page */
 	$('.instructions').click(function(){
@@ -68,9 +87,9 @@ $(document).ready(function(){
 		newGame();
 	});
 
-	
 	/* Generates all the questions and answers and updates main question counter */
 	function initQuestion(question) {
+		checkScore();
 		 currentObject = questionArray[question];
 		 text = currentObject.q;
 		$('.counter-number').text(currentQuestion + 1);
@@ -101,13 +120,13 @@ $(document).ready(function(){
 		$('.intro').animate({
 			opacity: 1
 		}, 850);
+		$('.intro').css("z-index", "4");
 	}
 
 	/* Resets all counters and text. */
 	function newGame(){
 		shuffle(questionArray);
 		currentQuestion = 0;
-		initQuestion(currentQuestion);
 		correctNum = 0;
 		wrongNum = 0;
 		$('.counter-number-correct').text(correctNum);
@@ -116,6 +135,7 @@ $(document).ready(function(){
 		rightWrong.text('');
 		elaborate.text('');
 		$('.push-button').text('Click to Begin!'); // Resets Intro button 
+		initQuestion(currentQuestion);
 	}
 
 	
@@ -140,12 +160,29 @@ $(document).ready(function(){
     return array;
     }
 
-	/* When an answer is clicked it turns color. Allows only 1 choice to be selected. */
-	$('.answer').on('click', function(){
-		console.dir(this);
-		$('.answer').removeClass('selectedAnswer');
-		$(this).addClass('selectedAnswer');
-	});
+    function checkScore() {
+    	
+    	if(currentQuestion == 2) {
+    		if(correctNum >= 1){
+    			$('.final').css("z-index", "2");
+	    		$('.final').animate({
+	    			opacity: 1
+	    		}, 1000);
+
+	    		$('.finalWin p').text('Congratulations! You answered ' + correctNum + ' questions\
+	    		 correctly! Kim Jong-il would be proud!');
+	    	}
+
+	    	else if(correctNum < 1) {
+	    		$('.final').css("z-index", "2");
+	    		$('.final').animate({
+	    			opacity: 1
+	    		}, 1000);
+	    		$('.finalLose p').text('Sorry! You only answered ' + wrongNum + ' questions correct!');
+	    	}
+    	}
+    }
+
 
 	/* Starts the question/answer generating process */
 	initQuestion(currentQuestion);
@@ -266,3 +303,8 @@ $(document).ready(function(){
 		explain: "He was said to be a particular fan of Elizabeth Taylor, \
 		the late Hollywood actress."
 	};
+
+	/*var finalObject = {
+		win: "Congratulations! You answered " + correctNum + " questions correct!",
+		lose: "Sorry! you only answered " + wrongNum + " questions correct!"
+	}; */
