@@ -40,7 +40,7 @@ body {
 
 .intro {
 	width: 950px;
-	height: 600px;
+	height: 640px;
 	position: absolute;
 	left: 50%; 
 	margin-left: -475px;
@@ -118,7 +118,7 @@ body {
 .final {
 	display: none;
 	width: 950px;
-	height: 600px;
+	height: 640px;
 	position: absolute;
 	left: 50%;
 	margin-left: -475px;
@@ -144,7 +144,7 @@ body {
 	position: relative;
 	margin: 0 auto;
 	width: 950px;
-	height: 600px;
+	height: 640px;
 	border: 2px solid black;
 	border-radius: 30px;
 	background: #fff;
@@ -235,8 +235,9 @@ body {
 	position: absolute;
 	bottom: 0;
 	width: 100%;
-	min-height: 89px;
+	/* min-height: 89px; */
 	border-radius: 0 0 28px 28px;
+	height: 105px;
 }
 
 .correct {
@@ -248,7 +249,7 @@ body {
 .explanation {
 	width: 95%;
 	margin: 0 auto;
-	font-size: 170%;
+	font-size: 163%;
 	text-align: center;
 	font-family: 'rockwellregular';
 	font-weight: bold;
@@ -256,7 +257,7 @@ body {
 
 .blue {
 	position: relative;
-    margin-top: 14px;
+    margin-top: 10px;
 	background-color: #185FAA;
 	width: 100%;
 	height: 65%;
