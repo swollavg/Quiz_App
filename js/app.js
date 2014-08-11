@@ -1,33 +1,39 @@
 $(document).ready(function(){
 	
-	var questionArray = [question1, question2, question3, question4, question5, question6, question7, question8, question9, question10];	
+	var questionArray = [question1, question2, question3, question4, question5, question6, question7, question8, question9, question10];
 	var currentQuestion = 0;
 	var currentObject = questionArray[currentQuestion];
 	var correctNum = 0;
 	var wrongNum = 0;
+	var rightWrong = $('.correct');
+	var elaborate = $('.explanation');
+	
+	/* sorts the questionArray variable */
+	shuffle(questionArray);
+
 	/* Fades out intro page into the actual quiz */
 	$('.push-button').click(function(event){
 		event.preventDefault();
 		$('.intro').animate({
 			opacity:0
-		}, 1200, function(){
+		}, 850, function(){
 			$('.intro').hide();
 		});
-
 	});
 
-	$('.push-button2').click(function(){
-		var rightWrong = $('.correct');
-	    var elaborate = $('.explanation');
-	    
+	$('.push-button2').click(function(event){
+		event.preventDefault();
+	    /* Validaton. Prevents submiting without answering */
 	    if($('.answer').hasClass('selectedAnswer')) {
-	    	
+	    	/* checks if answer is correct */
 	    	if($('.selectedAnswer').text() == currentObject.correct){
+	    		/* Updates the counters, adds explanations to question */
 	    		correctNum += 1;
 	    		rightWrong.text("Correct!");
 	    		elaborate.text(currentObject.explain);
 	    		addCorrectImage();
 	    		$('.counter-number-correct').text(correctNum);
+	    		/* Removes the highlighted answer */
 	    		$('.answer').removeClass('selectedAnswer');
 	    		currentQuestion++;
 	    		initQuestion(currentQuestion);
@@ -39,6 +45,7 @@ $(document).ready(function(){
 	    		elaborate.text('');
 	    		addWrongImage();
 	    		$('.counter-number-wrong').text(wrongNum)
+	    		/* Removes the highlighted answer */
 	    		$('.answer').removeClass('selectedAnswer');
 	    		currentQuestion++;
 	    		initQuestion(currentQuestion);
@@ -50,33 +57,88 @@ $(document).ready(function(){
 	    }
 
 	});
+	
+	/* fades to intructions page */
+	$('.instructions').click(function(){
+		instructions();
+		$('.push-button').text('Return To Quiz!');
+	});
+
+	$('.restart').click(function(){
+		newGame();
+	});
 
 	
-
+	/* Generates all the questions and answers and updates main question counter */
 	function initQuestion(question) {
 		 currentObject = questionArray[question];
 		 text = currentObject.q;
-		 $('.counter-number').text(currentQuestion + 1);
+		$('.counter-number').text(currentQuestion + 1);
 		$('.question-template p').text(text);
 		$('#answer1').text(currentObject.a);
 		$('#answer2').text(currentObject.b);
 		$('#answer3').text(currentObject.c);
 		$('#answer4').text(currentObject.d);
 	}
-
+	/* Adds bottle icon for correct answer with fade */
 	function addCorrectImage() {
 		$('.score-wrapper').append('<img src="images/cognac.png" alt="pic of cognac" class="fade">');
 		$('.fade').animate({
 			opacity:1
-		}, 700);
+		}, 500);
 	}
-
+	/* adds X icon for wrong answer with fade */
 	function addWrongImage() {
 		$('.score-wrapper').append('<img src="images/kimsmallwrong.png" alt="pic of cognac" class="fade">');
 		$('.fade').animate({
 			opacity:1
-		}, 700);
+		}, 500);
 	}
+	/* Fades the game out back to the instruction screen. no DOM nodes are removed. */
+	function instructions(){
+		$('.intro').show();
+		$('.wrapper').fadeOut;
+		$('.intro').animate({
+			opacity: 1
+		}, 850);
+	}
+
+	/* Resets all counters and text. */
+	function newGame(){
+		shuffle(questionArray);
+		currentQuestion = 0;
+		initQuestion(currentQuestion);
+		correctNum = 0;
+		wrongNum = 0;
+		$('.counter-number-correct').text(correctNum);
+		$('.counter-number-wrong').text(correctNum);
+		$('.score-wrapper').children().remove();
+		rightWrong.text('');
+		elaborate.text('');
+		$('.push-button').text('Click to Begin!'); // Resets Intro button 
+	}
+
+	
+	/* Randomizes the questions in the array */
+	function shuffle(array) {
+    var counter = array.length, temp, index;
+
+    // While there are elements in the array
+    while (counter > 0) {
+        // Pick a random index
+        index = Math.floor(Math.random() * counter);
+
+        // Decrease counter by 1
+        counter--;
+
+        // And swap the last element with it
+        temp = array[counter];
+        array[counter] = array[index];
+        array[index] = temp;
+    }
+
+    return array;
+    }
 
 	/* When an answer is clicked it turns color. Allows only 1 choice to be selected. */
 	$('.answer').on('click', function(){
@@ -85,14 +147,13 @@ $(document).ready(function(){
 		$(this).addClass('selectedAnswer');
 	});
 
-
+	/* Starts the question/answer generating process */
 	initQuestion(currentQuestion);
 
 
 }); // End document ready
 
 /* Objects*/
-
 	var question1 = {
 		q: "Kim Jong-il made how many hole-in-one's\
 		at his very first game of golf?",
@@ -163,7 +224,7 @@ $(document).ready(function(){
 	};
 
 	var question7 = {
-		q: "How many books did Kim Jong-il in college?",
+		q: "How many books did Kim Jong-il write in college?",
 		a: "100",
 		b: "1500",
 		c: "1600",
