@@ -105,6 +105,7 @@ body {
 }
 
 .final {
+	display: none;
 	width: 1100px;
 	height: 600px;
 	position: absolute;

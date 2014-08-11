@@ -7,6 +7,8 @@ $(document).ready(function(){
 	var wrongNum = 0;
 	var rightWrong = $('.correct');
 	var elaborate = $('.explanation');
+	var wrapperZ = 0;
+	var finalZ = 0;
 	
 	/* sorts the questionArray variable */
 	shuffle(questionArray);
@@ -31,6 +33,8 @@ $(document).ready(function(){
 
 	$('.push-button2').click(function(event){
 		event.preventDefault();
+		console.log(currentQuestion);
+		console.log(correctNum);
 	    /* Validaton. Prevents submiting without answering */
 	    if($('.answer').hasClass('selectedAnswer')) {
 	    	/* checks if answer is correct */
@@ -66,16 +70,17 @@ $(document).ready(function(){
 
 	});
 
-$('.push-button3').on('click',function(){
-	newGame();		
-	console.log(currentQuestion);
-	console.log(correctNum);
-	$('.final').animate({
-		opacity: 0
-	}, 1000);
-	$('.wrapper').css("z-index", "3");
-	
-});
+	$('.push-button3').on('click',function(){
+		newGame();		
+		$('.final').animate({
+			opacity: 0
+		}, 1000);
+		/* On the reset, make wrapper z index bigger than final */
+		$('.wrapper').css("z-index", "1");
+		$('.final').css("z-index",  "-1");
+		$('.finalWin p').text('');
+		$('.finalLose p').text('');
+	});
 	
 	/* fades to intructions page */
 	$('.instructions').click(function(){
@@ -162,23 +167,38 @@ $('.push-button3').on('click',function(){
 
     function checkScore() {
     	
-    	if(currentQuestion == 2) {
-    		if(correctNum >= 1){
+    	if(currentQuestion === 10) {
+    		if(correctNum >= 6){
+    			$('.final').delay(2000)
+    			.queue(function(next){
+    				$('.correct').text('');
+	    		    $('.explanation').text('');
+	    		    next();
+    			})
+    			.show();
     			$('.final').css("z-index", "2");
 	    		$('.final').animate({
 	    			opacity: 1
 	    		}, 1000);
 
+
 	    		$('.finalWin p').text('Congratulations! You answered ' + correctNum + ' questions\
 	    		 correctly! Kim Jong-il would be proud!');
+	    		/* reset the explanations from the quiz */
+	    		
 	    	}
 
-	    	else if(correctNum < 1) {
+	    	else if(correctNum < 6) {
+	    		$('.final').show();
 	    		$('.final').css("z-index", "2");
 	    		$('.final').animate({
 	    			opacity: 1
 	    		}, 1000);
-	    		$('.finalLose p').text('Sorry! You only answered ' + wrongNum + ' questions correct!');
+	    		$('.finalLose p').text('Sorry! You only answered ' + wrongNum + ' questions correctly!\
+	    			Kim Jong-il is very dissapointed with you!');
+	    		/* reset the explanations from the quiz */
+	    		$('.correct').text('');
+	    		$('.explanation').text('');
 	    	}
     	}
     }
