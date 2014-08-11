@@ -263,9 +263,9 @@ $(document).ready(function(){
 		q: "Kim Jong-il invented...",
 		a: "Chess",
 		b: "Tylenol",
-		c: "The Japanese language",
+		c: "Cigarettes",
 		d: "Hamburgers",
-		correct: "Hamburgers",
+		correct: "Cigarettes",
 		explain: "North Korean newspapers once reported that Kim Jong Il had invented \
 		something called the \"double bread with meat\" and created factories to produce \
 		them."
