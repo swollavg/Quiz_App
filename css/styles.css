@@ -40,7 +40,7 @@ body {
 
 .intro {
 	width: 950px;
-	height: 640px;
+	height: 600px;
 	position: absolute;
 	left: 50%; 
 	margin-left: -475px;
@@ -118,7 +118,7 @@ body {
 .final {
 	display: none;
 	width: 950px;
-	height: 640px;
+	height: 600px;
 	position: absolute;
 	left: 50%;
 	margin-left: -475px;
@@ -144,7 +144,7 @@ body {
 	position: relative;
 	margin: 0 auto;
 	width: 950px;
-	height: 640px;
+	height: 600px;
 	border: 2px solid black;
 	border-radius: 30px;
 	background: #fff;
@@ -242,14 +242,13 @@ body {
 
 .correct {
 	font-family: 'chow_funregular';
-	font-size: 260%;
+	font-size: 250%;
 	text-align: center;
 }
 
 .explanation {
-	width: 95%;
 	margin: 0 auto;
-	font-size: 163%;
+	font-size: 160%;
 	text-align: center;
 	font-family: 'rockwellregular';
 	font-weight: bold;
@@ -257,7 +256,7 @@ body {
 
 .blue {
 	position: relative;
-    margin-top: 10px;
+    margin-top: 7px;
 	background-color: #185FAA;
 	width: 100%;
 	height: 65%;

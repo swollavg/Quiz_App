@@ -174,8 +174,7 @@ $(document).ready(function(){
     			/* After the last answer, the explanation pauses for 2.2 sec, then transitions */
     			$('.final').delay(2200)
     			.queue(function(next){
-    				$('.correct').text('');
-	    		    $('.explanation').text('');
+    				
 	    		    next();
     			})
     			.show();
@@ -193,8 +192,7 @@ $(document).ready(function(){
 	    	else if(correctNum < 6) {
 	    		$('.final').delay(2200)
     			.queue(function(next){
-    				$('.correct').text('');
-	    		    $('.explanation').text('');
+    				
 	    		    next();
     			})
     			.show();
